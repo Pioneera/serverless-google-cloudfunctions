@@ -19,7 +19,7 @@ module.exports = {
       .request('deploymentmanager', 'deployments', 'list', params)
       .then((response) => {
         const deployment = response.deployments.find((dep) => {
-          const name = `sls-${this.serverless.service.service}-${this.options.stage}`;
+          const name = `sls-${this.serverless.service.provider.region}-${this.options.stage}`;
           return dep.name === name;
         });
 
@@ -36,7 +36,7 @@ module.exports = {
       'configuration-template-update.yml'
     );
 
-    const deploymentName = `sls-${this.serverless.service.service}-${this.options.stage}`;
+    const deploymentName = `sls-${this.serverless.service.provider.region}-${this.options.stage}`;
 
     const params = {
       project: this.serverless.service.provider.project,

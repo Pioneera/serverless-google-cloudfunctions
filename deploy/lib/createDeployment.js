@@ -22,7 +22,7 @@ module.exports = {
 
         if (response && response.deployments) {
           foundDeployment = response.deployments.find((deployment) => {
-            const name = `sls-${this.serverless.service.service}-${this.options.stage}`;
+            const name = `sls-${this.serverless.service.provider.region}-${this.options.stage}`;
             return deployment.name === name;
           });
         }
@@ -42,7 +42,7 @@ module.exports = {
       'configuration-template-create.yml'
     );
 
-    const deploymentName = `sls-${this.serverless.service.service}-${this.options.stage}`;
+    const deploymentName = `sls-${this.serverless.service.provider.region}-${this.options.stage}`;
 
     const params = {
       project: this.serverless.service.provider.project,

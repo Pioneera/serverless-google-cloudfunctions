@@ -16,7 +16,7 @@ module.exports = {
     // check if there's already a deployment and update if available
     const params = {
       project: this.serverless.service.provider.project,
-      deployment: `sls-${this.serverless.service.service}-${this.options.stage}`,
+      deployment: `sls-${this.serverless.service.provider.region}-${this.options.stage}`,
     };
 
     return this.provider

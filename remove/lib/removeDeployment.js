@@ -4,7 +4,7 @@ module.exports = {
   removeDeployment() {
     this.serverless.cli.log('Removing deployment...');
 
-    const deploymentName = `sls-${this.serverless.service.service}-${this.options.stage}`;
+    const deploymentName = `sls-${this.serverless.service.provider.region}-${this.options.stage}`;
 
     const params = {
       project: this.serverless.service.provider.project,

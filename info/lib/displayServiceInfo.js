@@ -16,7 +16,7 @@ module.exports = {
 
     return this.provider.request('deploymentmanager', 'resources', 'list', {
       project,
-      deployment: `sls-${this.serverless.service.service}-${this.options.stage}`,
+      deployment: `sls-${this.serverless.service.provider.region}-${this.options.stage}`,
     });
   },
 
