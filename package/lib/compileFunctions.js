@@ -46,7 +46,7 @@ module.exports = {
       funcTemplate.properties.runtime =
         _.get(funcObject, 'runtime') ||
         _.get(this, 'serverless.service.provider.runtime') ||
-        'nodejs8';
+        'nodejs10';
       funcTemplate.properties.timeout =
         _.get(funcObject, 'timeout') || _.get(this, 'serverless.service.provider.timeout') || '60s';
       funcTemplate.properties.environmentVariables = _.merge(
@@ -220,7 +220,7 @@ const getFunctionTemplate = (funcObject, projectName, region, sourceArchiveUrl) 
     properties: {
       parent: `projects/${projectName}/locations/${region}`,
       availableMemoryMb: 256,
-      runtime: 'nodejs8',
+      runtime: 'nodejs10',
       timeout: '60s',
       entryPoint: funcObject.handler,
       function: funcObject.name,
